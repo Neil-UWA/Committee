@@ -1,0 +1,20 @@
+%h1 小区业主注册
+
+- if flash[:error]
+  -# %h1.alert.alert-warning #{flash[:error]}
+  - @user.errors.messages.each do |e|
+    %h1.alert.alert-warning #{e}
+=form_for @user, {role: "form"} do |f|
+  .form-group
+    =f.label :邮箱
+    =f.text_field :email, {placeholder: "邮箱", class: "form-control"}
+
+  .form-group
+    =f.label :密码
+    =f.password_field :password, {placeholder: "密码", class: "form-control"}
+
+  .form-group
+    =f.label :确认密码
+    =f.password_field :password_confirmation, {placeholder: "重复密码", class: "form-control"}
+
+  =f.submit :注册, {class: "btn btn-primary btn-block"}
