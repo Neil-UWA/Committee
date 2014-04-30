@@ -3,6 +3,7 @@ CommitteeApp::Application.routes.draw do
 
   devise_for :users
 
+  resources :users
   resources :sessions, only: [:new, :create]
   resources :problems, only: [:new, :create, :index]
 end

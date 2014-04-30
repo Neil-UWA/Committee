@@ -11,10 +11,10 @@
     %li
       %a{href: '#'} 御西湖业主意见网
     - if user_signed_in?
-      %li
-        = link_to current_user.email
-      %li
+      %li.signed_in
         =link_to '注销', destroy_user_session_path, method: :delete
+      %li.signed_in
+        = link_to current_user.email, user_path(current_user)
     - else
       %li.sign-up
         =link_to '登入', new_user_session_path
