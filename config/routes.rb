@@ -5,5 +5,4 @@ CommitteeApp::Application.routes.draw do
 
   resources :sessions, only: [:new, :create]
   resources :problems, only: [:new, :create, :index]
-
 end

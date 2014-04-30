@@ -10,11 +10,11 @@
       =link_to '小区问题', problems_path
     %li
       %a{href: '#'} 御西湖业主意见网
-    - if current_user
+    - if user_signed_in?
       %li
-        =link_to '#{current_user.email}', new_user_registration_path
+        =link_to '#{current_user}'
       %li
-        =link_to '注销', destroy_user_session_path
+        =link_to '注销', destroy_user_session_path, method: :delete
     - else
       %li.sign-up
         =link_to '登入', new_user_session_path
