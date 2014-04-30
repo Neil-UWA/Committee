@@ -1,1 +1,14 @@
+- if user_signed_in?
+  = form_for current_user.problems.build do |f|
+    .form-group
+      =f.text_field "title", placeholder: "标题", class: "form-control"
+    .form-group
+      =f.text_area "details", class: "form-control"
+    =f.submit "提交", class: "btn btn-primary"
+
 %h1 问题列表
+
+%ul.list-group
+  - @problems.each do |p|
+    %li.list-group-item
+      =link_to "#{p.title}", problem_path(p)
